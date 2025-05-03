@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Leap Year Checker
+      function leapYearChecker(year) {
+        if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+          return `This year is a leap year`;
+        }
+        return `This year is not a leap year`;
+      }
+      console.log(leapYearChecker(2000));
+
+      //   Ticket Pricing
+      function ticketPricing() {
+        const age = parseFloat(prompt("Enter your age"));
+        if (isNaN(age) || age <= 0) {
+          alert("Invalid input. Please enter a valid age.");
+          return ticketPricing();
+        }
+        return Math.floor(age) <= 12
+          ? `$10`
+          : age >= 13 && Math.floor(age) <= 17
+          ? `$15`
+          : `$20`;
+      }
+      console.log(`the price is ${ticketPricing()}`);
+
+      //   Weather Clothing Adviser
+      function weatherClothingAdviser() {
+        const temperature = parseInt(prompt("enter the current temperature"));
+        const isItRain = prompt(
+          "is it raining? or will it be raining? respond with Yes or No"
+        ).toLocaleLowerCase();
+        if (isNaN(temperature)) {
+          alert("Invalid input. Please enter a valid temperature.");
+          return weatherClothingAdviser();
+        }
+        if (isItRain !== "yes" && isItRain !== "no") {
+          alert("Invalid input. Please enter 'yes' or 'no' for rain.");
+          return weatherClothingAdviser();
+        }
+        if (temperature >= 30) {
+          return isItRain === "yes"
+            ? "Breathable rain jacket, quick-dry shorts/pants, waterproof sandals, and bring an umbrella"
+            : "Light cotton T-shirt, shorts, sandals, sunglasses, hat";
+        } else if (temperature >= 20) {
+          return isItRain === "yes"
+            ? "Waterproof jacket, jeans, waterproof shoes, and bring an umbrella"
+            : "T-shirt/blouse, jeans/light pants, sneakers";
+        } else if (temperature >= 10) {
+          return isItRain === "yes"
+            ? "Raincoat, sweater, jeans, waterproof shoes, and bring an umbrella"
+            : "Long-sleeve shirt, sweater, jeans/chinos, sneakers";
+        } else if (temperature >= 0) {
+          return isItRain === "yes"
+            ? "Waterproof jacket, thermal pants, scarf, gloves, waterproof boots, and bring an umbrella"
+            : "Sweater, insulated jacket, jeans, scarf, boots";
+        } else {
+          return isItRain === "yes"
+            ? "Waterproof insulated outerwear, gloves, non-slip winter boots, and bring an umbrella"
+            : "Thermal layers, heavy coat, wool hat, gloves, scarf, insulated boots";
+        }
+      }
+      console.log(weatherClothingAdviser());
+      // Fibonacci Sequence
+      function fibonacci(n) {
+        if (n <= 1) {
+          return n;
+        }
+        return fibonacci(n - 1) + fibonacci(n - 2);
+      }
+      console.log(fibonacci(6));
+      //   Palindrome Checker
+      function isPalindrome(str) {
+        if (str.length <= 1) {
+          return true;
+        } else if (str[0] !== str[str.length - 1]) {
+          return false;
+        }
+        return isPalindrome(str.slice(1, str.length - 1));
+      }
+      console.log(isPalindrome("coocoo"));
+      //   Power Function
+      function power(base, exponent) {
+        if (exponent === 0) {
+          return 1;
+        }
+        return base * power(base, exponent - 1);
+      }
+      console.log(power(2, 4));
+    </script>
+  </body>
+</html>
